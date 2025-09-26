@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="es" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,17 +27,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="res/favicon.ico" />
 
-    <script src="https://fpyf8.com/88/tag.min.js" data-zone="165420" async data-cfasync="false"></script>
-    <title>TO-DOIT</title>
+    <title>Lista de Tareas</title>
   </head>
   <body>
     <!-- Copyright -->
     <footer>
       <div class="author-text">
         <p>
-          Made with ❤️ by
-          <a href="https://github.com/abdellatif-laghjaj" target="_blank"
-            ><b>Abdellatif Laghjaj</b></a
+          Hecho con ❤️ por
+          <a href="https://github.com/Briian10" target="_blank"
+            ><b>Brayan Gutierrez</b></a
           >
         </p>
       </div>
@@ -45,18 +44,18 @@
 
     <div class="container">
       <header>
-        <h1>Todo List</h1>
-        <!-- Error message -->
+        <h1>Lista de Tareas</h1>
+        <!-- Mensaje de error -->
         <div class="alert-message"></div>
 
-        <!-- Progress Section -->
+        <!-- Sección de Progreso -->
         <div class="progress-container mb-4 w-full">
           <div class="stats stats-horizontal shadow w-full mb-4">
             <div class="stat">
               <div class="stat-figure text-primary">
                 <i class="bx bx-task text-2xl"></i>
               </div>
-              <div class="stat-title">Total Tasks</div>
+              <div class="stat-title">Tareas Totales</div>
               <div class="stat-value text-primary total-counter">0</div>
             </div>
 
@@ -64,7 +63,7 @@
               <div class="stat-figure text-success">
                 <i class="bx bx-check-circle text-2xl"></i>
               </div>
-              <div class="stat-title">Completed</div>
+              <div class="stat-title">Completadas</div>
               <div class="stat-value text-success completed-counter">0</div>
             </div>
 
@@ -72,15 +71,15 @@
               <div class="stat-figure text-warning">
                 <i class="bx bx-time text-2xl"></i>
               </div>
-              <div class="stat-title">Pending</div>
-              <div class="stat-value text-warning pending-counter">0</div>
+              <div class="stat-title">Pendientes</div>
+              <div class="stat-value text-warning Pendientes-counter">0</div>
             </div>
 
             <div class="stat">
               <div class="stat-figure text-info">
                 <i class="bx bx-pie-chart-alt text-2xl"></i>
               </div>
-              <div class="stat-title">Progress</div>
+              <div class="stat-title">Progreso</div>
               <div class="stat-value text-info percentage-display">0%</div>
             </div>
           </div>
@@ -96,11 +95,11 @@
           </div>
         </div>
 
-        <!-- Input Section -->
+        <!-- Sección de entrada -->
         <div class="input-section">
           <input
             type="text"
-            placeholder="Add a todo . . ."
+            placeholder="Agrega una tarea..."
             class="input input-bordered input-secondary w-full max-w-xs"
           />
           <input
@@ -113,15 +112,15 @@
         </div>
       </header>
 
-      <!-- Search and Filter Section -->
+      <!-- Sección de búsqueda y filtros -->
       <div class="search-filter-section mb-4 w-full">
         <div class="flex flex-col sm:flex-row gap-4 w-full">
-          <!-- Search Bar -->
+          <!-- Barra de búsqueda -->
           <div class="flex-1">
             <div class="relative">
               <input
                 type="text"
-                placeholder="Search tasks... (Ctrl+F)"
+                placeholder="Buscar tareas... (Ctrl+F)"
                 class="input input-bordered w-full pl-10 search-input"
               />
               <i
@@ -130,19 +129,19 @@
             </div>
           </div>
 
-          <!-- Filter Dropdown -->
+          <!-- Menú de filtro -->
           <div class="dropdown">
             <label tabindex="0" class="btn btn-outline">
               <i class="bx bx-filter mr-2"></i>
-              Filter
+              Filtro
             </label>
             <ul
               tabindex="0"
               class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li><a data-filter="all">All Tasks</a></li>
-              <li><a data-filter="pending">Pending</a></li>
-              <li><a data-filter="completed">Completed</a></li>
+              <li><a data-filter="all">Todas</a></li>
+              <li><a data-filter="Pendientes">Pendientes</a></li>
+              <li><a data-filter="completed">Completadas</a></li>
             </ul>
           </div>
         </div>
@@ -153,33 +152,21 @@
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost btn-sm">
               <i class="bx bx-sort mr-1"></i>
-              Sort
+              Ordenar
             </label>
             <ul
               tabindex="0"
               class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a onclick="todoApp?.uiManager?.handleFilterTodos('all')"
-                  >All</a
-                >
-              </li>
-              <li>
-                <a onclick="todoApp?.uiManager?.handleFilterTodos('pending')"
-                  >Pending</a
-                >
-              </li>
-              <li>
-                <a onclick="todoApp?.uiManager?.handleFilterTodos('completed')"
-                  >Completed</a
-                >
-              </li>
+              <li><a onclick="todoApp?.uiManager?.handleFilterTodos('all')">Todas</a></li>
+              <li><a onclick="todoApp?.uiManager?.handleFilterTodos('Pendientes')">Pendientes</a></li>
+              <li><a onclick="todoApp?.uiManager?.handleFilterTodos('completed')">Completadas</a></li>
             </ul>
           </div>
 
           <button
             class="btn btn-ghost btn-sm help-btn"
-            title="Keyboard Shortcuts"
+            title="Atajos de teclado"
           >
             <i class="bx bx-help-circle"></i>
           </button>
@@ -187,7 +174,7 @@
 
         <button class="btn btn-error delete-all-btn">
           <i class="bx bx-trash mr-2"></i>
-          Delete All
+          Borrar Todas
         </button>
       </div>
 
@@ -195,10 +182,10 @@
         <table class="table table-zebra w-full">
           <thead>
             <tr>
-              <th class="w-2/5">Task</th>
-              <th class="w-1/5">Due Date</th>
-              <th class="w-1/5">Status</th>
-              <th class="w-1/5">Actions</th>
+              <th class="w-2/5">Tarea</th>
+              <th class="w-1/5">Fecha límite</th>
+              <th class="w-1/5">Estado</th>
+              <th class="w-1/5">Acciones</th>
             </tr>
           </thead>
           <tbody class="todos-list-body"></tbody>
@@ -206,42 +193,42 @@
       </div>
     </div>
 
-    <!-- Keyboard Shortcuts Help Modal -->
+    <!-- Modal de ayuda (atajos) -->
     <div id="help-modal" class="modal">
       <div class="modal-box">
         <h3 class="font-bold text-lg mb-4">
           <i class="bx bx-keyboard mr-2"></i>
-          Keyboard Shortcuts
+          Atajos de teclado
         </h3>
         <div class="grid grid-cols-1 gap-3">
           <div class="flex justify-between items-center">
-            <span>Add new task</span>
+            <span>Agregar nueva tarea</span>
             <kbd class="kbd kbd-sm">Ctrl + N</kbd>
           </div>
           <div class="flex justify-between items-center">
-            <span>Search tasks</span>
+            <span>Buscar tareas</span>
             <kbd class="kbd kbd-sm">Ctrl + F</kbd>
           </div>
           <div class="flex justify-between items-center">
-            <span>Show all tasks</span>
+            <span>Mostrar todas las tareas</span>
             <kbd class="kbd kbd-sm">Ctrl + A</kbd>
           </div>
           <div class="flex justify-between items-center">
-            <span>Cancel operation</span>
+            <span>Cancelar operación</span>
             <kbd class="kbd kbd-sm">Escape</kbd>
           </div>
           <div class="flex justify-between items-center">
-            <span>Add task (from input)</span>
+            <span>Agregar tarea (desde input)</span>
             <kbd class="kbd kbd-sm">Enter</kbd>
           </div>
         </div>
         <div class="modal-action">
-          <button class="btn btn-ghost close-help-modal">Close</button>
+          <button class="btn btn-ghost close-help-modal">Cerrar</button>
         </div>
       </div>
     </div>
 
-    <!--Theme switcher-->
+    <!-- Cambiador de tema -->
     <div class="theme-switcher">
       <div class="dropdown dropdown-left">
         <label tabindex="0" class="btn m-1">
@@ -251,17 +238,17 @@
           tabindex="0"
           class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li class="theme-item" theme="cupcake"><a>cupcake</a></li>
-          <li class="theme-item" theme="dark"><a>dark</a></li>
-          <li class="theme-item" theme="light"><a>light</a></li>
-          <li class="theme-item" theme="bumblebee"><a>bumblebee</a></li>
-          <li class="theme-item" theme="synthwave"><a>synthwave</a></li>
-          <li class="theme-item" theme="halloween"><a>halloween</a></li>
-          <li class="theme-item" theme="fantasy"><a>fantasy</a></li>
-          <li class="theme-item" theme="dracula"><a>dracula</a></li>
-          <li class="theme-item" theme="aqua"><a>aqua</a></li>
-          <li class="theme-item" theme="luxury"><a>luxury</a></li>
-          <li class="theme-item" theme="night"><a>night</a></li>
+          <li class="theme-item" theme="cupcake"><a>Cupcake</a></li>
+          <li class="theme-item" theme="dark"><a>Oscuro</a></li>
+          <li class="theme-item" theme="light"><a>Claro</a></li>
+          <li class="theme-item" theme="bumblebee"><a>Abeja</a></li>
+          <li class="theme-item" theme="synthwave"><a>Synthwave</a></li>
+          <li class="theme-item" theme="halloween"><a>Halloween</a></li>
+          <li class="theme-item" theme="fantasy"><a>Fantasia</a></li>
+          <li class="theme-item" theme="dracula"><a>Drácula</a></li>
+          <li class="theme-item" theme="aqua"><a>Aqua</a></li>
+          <li class="theme-item" theme="luxury"><a>Lujo</a></li>
+          <li class="theme-item" theme="night"><a>Noche</a></li>
         </ul>
       </div>
     </div>

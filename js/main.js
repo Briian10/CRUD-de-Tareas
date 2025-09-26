@@ -9,7 +9,7 @@ class TodoItemFormatter {
   }
 
   formatStatus(completed) {
-    return completed ? "Completed" : "Pending";
+    return completed ? "Completed" : "Pendientes";
   }
 
   formatTaskForDisplay(task) {
@@ -78,7 +78,7 @@ class TodoManager {
         originalTask: task.trim(),
         dueDate: this.todoItemFormatter.formatDueDate(dueDate),
         completed: false,
-        status: "pending",
+        status: "Pendientes",
         subtasks: [],
         priority: 0,
         parent: parentId,
@@ -164,7 +164,7 @@ class TodoManager {
       const todo = this.todos.find((t) => t.id === id);
       if (todo) {
         todo.completed = !todo.completed;
-        todo.status = todo.completed ? "completed" : "pending";
+        todo.status = todo.completed ? "completed" : "Pendientes";
         todo.updatedAt = new Date().toISOString();
 
         // If it's a parent task, update all subtasks
@@ -173,7 +173,7 @@ class TodoManager {
             const subtask = this.todos.find((t) => t.id === subtaskId);
             if (subtask) {
               subtask.completed = todo.completed;
-              subtask.status = todo.completed ? "completed" : "pending";
+              subtask.status = todo.completed ? "completed" : "Pendientes";
               subtask.updatedAt = new Date().toISOString();
             }
           });
@@ -193,7 +193,7 @@ class TodoManager {
               parent.status = "completed";
             } else if (!todo.completed) {
               parent.completed = false;
-              parent.status = "pending";
+              parent.status = "Pendientes";
             }
             parent.updatedAt = new Date().toISOString();
           }
@@ -256,7 +256,7 @@ class TodoManager {
         case "all":
           filtered = this.todos;
           break;
-        case "pending":
+        case "Pendientes":
           filtered = this.todos.filter((todo) => !todo.completed);
           break;
         case "completed":
@@ -308,14 +308,14 @@ class TodoManager {
     const completed = this.todos.filter(
       (todo) => !todo.parent && todo.completed
     ).length;
-    const pending = total - completed;
+    const Pendientes = total - completed;
     const completionPercentage =
       total > 0 ? Math.round((completed / total) * 100) : 0;
 
     return {
       total,
       completed,
-      pending,
+      Pendientes,
       completionPercentage,
       totalIncludingSubtasks: this.todos.length,
       completedIncludingSubtasks: this.todos.filter((todo) => todo.completed)
@@ -985,12 +985,12 @@ class UIManager {
     // Update counters
     const totalCounter = document.querySelector(".total-counter");
     const completedCounter = document.querySelector(".completed-counter");
-    const pendingCounter = document.querySelector(".pending-counter");
+    const PendientesCounter = document.querySelector(".Pendientes-counter");
     const percentageDisplay = document.querySelector(".percentage-display");
 
     if (totalCounter) totalCounter.textContent = stats.total;
     if (completedCounter) completedCounter.textContent = stats.completed;
-    if (pendingCounter) pendingCounter.textContent = stats.pending;
+    if (PendientesCounter) PendientesCounter.textContent = stats.Pendientes;
     if (percentageDisplay)
       percentageDisplay.textContent = `${stats.completionPercentage}%`;
   }
